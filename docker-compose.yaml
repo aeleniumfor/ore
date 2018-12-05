@@ -1,0 +1,35 @@
+version: "2"
+services:
+  test1:
+    image: php:5.6-apache
+    ports:
+      - 8081:80
+    restart: always
+
+  test2:
+    image: php:5.6-apache
+    ports:
+      - 8082:80
+    restart: always
+
+  nats:
+    image: nats:linux
+    ports:
+      - 4222:4222
+      - 8222:8222
+      - 6222:6222
+    restart: always
+
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
+    command: redis-server --appendonly yes
+  
+  redmon:
+    image: vieux/redmon
+    links:
+      - redis:redis
+    ports:
+      - 4567:4567
+    command: -r redis://redis:6379
