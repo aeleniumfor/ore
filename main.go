@@ -21,8 +21,8 @@ func handler(c *cash_redis.Cach) func(http.ResponseWriter, *http.Request) {
 		// 	target = "http://httpbin.org/"
 		// }
 		if target == "" {
-			c.SetCach(r.Host, "http://httpbin.org/")
-			target = "http://httpbin.org/"
+			c.SetCach(r.Host, "http://localhost/")
+			target = "http://localhost/"
 		}
 		log.Println("[request]: " + r.Host)
 		log.Println("[target]: " + target)
