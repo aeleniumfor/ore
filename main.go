@@ -6,7 +6,7 @@ import (
 	"net/http/httputil"
 	"net/url"
 
-	"gitlab.com/docker-api/cash_redis"
+	"github.com/ore/cash_redis"
 )
 
 func handler(c *cash_redis.Cach) func(http.ResponseWriter, *http.Request) {
